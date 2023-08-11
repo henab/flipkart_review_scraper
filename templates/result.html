@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Review Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <link rel="stylesheet" href="./static/css/style.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+  <div class="table-users">
+    <div class="header">Search URL</div>
+    <p><a href="{{ searchURL }}" target="_blank">{{ searchURL }}</a></p>
+  </div>
+
+  <div class="table-users">
+  <div class="header">Reviews</div>
+    <table cellspacing="0" width="100%">    
+      <tr>
+        <th style="width: 100px;">Product</th>
+        <th style="width: 250px;">Reviewer Name</th>
+        <th style="width: 150px;text-align: center;">Rating</th>
+        <th style="width: 300px;">Title</th>
+        <th style="width: 500px;">Review</th>
+     </tr>   
+        {% for review in reviews %}
+        <tr>
+          <td style="text-align: left;">{{review['Product']}}</td>      
+          <td style="text-align: left;">{{review['Reviewer Name']}}</td>
+          <td style="text-align: left;text-align: center;">{{review['Rating']}}</td>         
+          <td style="text-align: left;">{{review['Title']}} </td>
+          <td style="text-align: left;">{{review['Review']}} </td>
+         {% endfor %}
+  
+    </table>
+  </div>
+</body>
+</html>
